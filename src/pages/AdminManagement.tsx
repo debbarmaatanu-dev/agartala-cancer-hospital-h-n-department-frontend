@@ -178,13 +178,13 @@ export const AdminManagement = (): React.JSX.Element => {
                         Master Admin
                       </span>
                     )}
-                    {admin.isMaster === false && admin.emailVerified && (
+                    {!admin.isMaster && admin.emailVerified === true && (
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">
                         <i className="fa-solid fa-check-circle"></i>
                         Verified Email
                       </span>
                     )}
-                    {admin.isMaster === false && !admin.emailVerified && (
+                    {!admin.isMaster && admin.emailVerified === false && (
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-yellow-100 px-3 py-1 text-sm font-semibold text-yellow-700">
                         <i className="fa-solid fa-hourglass-half"></i>
                         Awaiting Verification
