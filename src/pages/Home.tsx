@@ -3,8 +3,10 @@ import landingImage from '@/assets/2.png';
 import searchImage from '@/assets/1.png';
 import addPatientImage from '@/assets/3.png';
 import {formatDate, formatTime} from '@/utils/homeUtils';
+import {useNavigate} from 'react-router-dom';
 
 export const Home = (): React.JSX.Element => {
+  const navigation = useNavigate();
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   useEffect(() => {
@@ -16,13 +18,17 @@ export const Home = (): React.JSX.Element => {
   }, []);
 
   const handleAddPatient = () => {
-    console.log('Navigate to add patient');
-    // Add your navigation logic here
+    setTimeout(() => {
+      navigation('/add_new_records');
+      scrollTo(0, 0);
+    }, 250);
   };
 
   const handleSearchPatient = () => {
-    console.log('Navigate to search patient');
-    // Add your navigation logic here
+    setTimeout(() => {
+      navigation('/search_records');
+      scrollTo(0, 0);
+    }, 250);
   };
 
   return (
@@ -59,7 +65,10 @@ export const Home = (): React.JSX.Element => {
                 <div className="inline-flex w-70 cursor-text rounded-full bg-blue-600 px-6 py-2.5 text-white shadow-md">
                   <time className="text-sm font-medium md:text-base">
                     {formatDate(currentDateTime)}
-                    {' - '} {formatTime(currentDateTime)}
+                    {' - '}
+                    <span className="font-bold">
+                      {formatTime(currentDateTime)}
+                    </span>
                   </time>
                 </div>
               </div>
@@ -75,7 +84,7 @@ export const Home = (): React.JSX.Element => {
                 {/* Add New Patient Card */}
                 <button
                   onClick={handleAddPatient}
-                  className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-linear-to-br from-blue-500 to-blue-600 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                  className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-linear-to-br from-blue-500 to-blue-600 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:ring-4 focus:ring-blue-300 focus:outline-none active:scale-95"
                   aria-label="Add new patient record">
                   <div className="h-48 w-full overflow-hidden md:h-56 lg:h-64">
                     <img
@@ -98,7 +107,7 @@ export const Home = (): React.JSX.Element => {
                 {/* Search Patient Card */}
                 <button
                   onClick={handleSearchPatient}
-                  className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-linear-to-br from-teal-500 to-teal-600 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:ring-4 focus:ring-teal-300 focus:outline-none"
+                  className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-linear-to-br from-teal-500 to-teal-600 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:ring-4 focus:ring-teal-300 focus:outline-none active:scale-95"
                   aria-label="Search for existing patient">
                   <div className="h-48 w-full overflow-hidden md:h-56 lg:h-64">
                     <img

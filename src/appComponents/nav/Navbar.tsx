@@ -36,7 +36,7 @@ export const NavBar = () => {
         <div className="xxxs:h-20 flex h-16 items-center justify-between">
           <button
             onClick={handleHomeClick}
-            className="xxxs:space-x-3 flex cursor-pointer items-center space-x-2 transition-opacity hover:opacity-80"
+            className="xxxs:space-x-3 flex cursor-pointer items-center space-x-2 transition-all hover:opacity-80 active:scale-95"
             aria-label="Go to home">
             <div className="flex shrink-0 items-center justify-center rounded-full bg-blue-300">
               <img
@@ -65,7 +65,7 @@ export const NavBar = () => {
               </a>
               <button
                 onClick={logout}
-                className="xxxs:text-base cursor-pointer text-sm font-medium text-blue-600 transition-colors hover:text-blue-800 hover:underline"
+                className="xxxs:text-base cursor-pointer text-sm font-medium text-blue-600 transition-all hover:text-blue-800 hover:underline active:scale-95"
                 aria-label="Logut button">
                 Logout
               </button>

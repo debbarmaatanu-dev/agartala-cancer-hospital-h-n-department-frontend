@@ -6,6 +6,9 @@ import {appStore} from './appStore/appStore';
 import {Login} from './pages/Login';
 import {useEffect} from 'react';
 import Cookies from 'js-cookie';
+import {AddNewRecords} from './pages/AddNewRecords';
+import {SearchRecords} from './pages/SearchRecords';
+import {PatientRecordDetail} from './pages/PatientRecordDetail';
 
 const Root: React.FC = () => {
   const isAdmin = appStore(state => state.isAdmin);
@@ -38,6 +41,12 @@ const Root: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/add_new_records" element={<AddNewRecords />} />
+            <Route path="/search_records" element={<SearchRecords />} />
+            <Route
+              path="/search_records/:searchParam"
+              element={<PatientRecordDetail />}
+            />
           </Routes>
           <Footer />
         </Router>

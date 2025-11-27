@@ -119,7 +119,7 @@ export default function AdminLoginForm({
 
             <button
               onClick={handleForgotPasswordSubmit}
-              className="w-full cursor-pointer rounded-md bg-blue-600 py-3 font-semibold text-white transition-colors duration-200 hover:bg-blue-800">
+              className="w-full cursor-pointer rounded-md bg-blue-600 py-3 font-semibold text-white transition-all duration-200 hover:bg-blue-800 active:scale-95">
               Reset Password
             </button>
           </div>
@@ -178,7 +178,7 @@ export default function AdminLoginForm({
 
           <button
             onClick={handleSubmit}
-            className="w-full cursor-pointer rounded-md bg-blue-600 py-3 font-semibold text-white transition-colors duration-200 hover:bg-blue-800">
+            className="w-full cursor-pointer rounded-md bg-blue-600 py-3 font-semibold text-white transition-all duration-200 hover:bg-blue-800 active:scale-95">
             Login
           </button>
         </div>
