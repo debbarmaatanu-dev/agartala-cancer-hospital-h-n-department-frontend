@@ -9,6 +9,7 @@ import Cookies from 'js-cookie';
 import {AddNewRecords} from './pages/AddNewRecords';
 import {SearchRecords} from './pages/SearchRecords';
 import {PatientRecordDetail} from './pages/PatientRecordDetail';
+import {AdminManagement} from './pages/AdminManagement';
 
 const Root: React.FC = () => {
   const isAdmin = appStore(state => state.isAdmin);
@@ -47,6 +48,7 @@ const Root: React.FC = () => {
               path="/search_records/:searchParam"
               element={<PatientRecordDetail />}
             />
+            <Route path="/admin" element={<AdminManagement />} />
           </Routes>
           <Footer />
         </Router>

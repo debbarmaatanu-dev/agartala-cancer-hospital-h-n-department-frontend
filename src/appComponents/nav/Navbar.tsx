@@ -20,6 +20,13 @@ export const NavBar = () => {
     }
   };
 
+  const handleAdminClick = () => {
+    setTimeout(() => {
+      navigation('/admin');
+      scrollTo(0, 0);
+    }, 250);
+  };
+
   const logout = () => {
     setTimeout(() => {
       setIsAdmin(false);
@@ -57,12 +64,12 @@ export const NavBar = () => {
 
           {isAdmin && (
             <div className="xxxs:space-x-6 flex items-center space-x-4">
-              <a
-                href="#admin-panel"
-                className="xxxs:text-base text-sm font-medium text-gray-700 transition-colors hover:text-blue-600 hover:underline"
+              <button
+                onClick={handleAdminClick}
+                className="xxxs:text-base cursor-pointer text-sm font-medium text-gray-700 transition-all hover:text-blue-600 hover:underline active:scale-95"
                 aria-label="Admin panel link">
                 Admin
-              </a>
+              </button>
               <button
                 onClick={logout}
                 className="xxxs:text-base cursor-pointer text-sm font-medium text-blue-600 transition-all hover:text-blue-800 hover:underline active:scale-95"
