@@ -1,5 +1,5 @@
 import React from 'react';
-import {MediaFile} from '@/constants/dummyData';
+import type {MediaFile} from '@/constants/dummyData';
 
 interface MedicalMediaSectionProps {
   mediaUrls: MediaFile[];

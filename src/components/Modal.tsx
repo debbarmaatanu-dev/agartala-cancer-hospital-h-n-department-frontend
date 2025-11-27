@@ -8,7 +8,7 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({onClose, onDownload}) => {
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+      className="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black"
       onClick={onClose}>
       <div
         className="mx-4 w-full max-w-sm rounded-lg bg-white p-6 shadow-lg"
