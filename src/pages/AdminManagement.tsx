@@ -10,6 +10,7 @@ interface AdminUser {
     remove: boolean;
   };
   isMaster: boolean;
+  emailVerified?: boolean;
 }
 
 export const AdminManagement = (): React.JSX.Element => {
@@ -27,6 +28,7 @@ export const AdminManagement = (): React.JSX.Element => {
       password: '123456',
       permissions: {read: true, write: true, remove: false},
       isMaster: false,
+      emailVerified: true,
     },
     {
       id: 'admin_3',
@@ -34,6 +36,7 @@ export const AdminManagement = (): React.JSX.Element => {
       password: '1234567',
       permissions: {read: true, write: false, remove: false},
       isMaster: false,
+      emailVerified: false,
     },
   ]);
 
@@ -169,13 +172,25 @@ export const AdminManagement = (): React.JSX.Element => {
                     </div>
                   </div>
 
-                  {admin.isMaster && (
-                    <div className="mt-3">
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    {admin.isMaster && (
                       <span className="inline-block rounded-full bg-purple-100 px-3 py-1 text-sm font-semibold text-purple-700">
                         Master Admin
                       </span>
-                    </div>
-                  )}
+                    )}
+                    {!admin.isMaster && admin.emailVerified && (
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">
+                        <i className="fa-solid fa-circle-check"></i>
+                        Verified Email
+                      </span>
+                    )}
+                    {!admin.isMaster && !admin.emailVerified && (
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-yellow-100 px-3 py-1 text-sm font-semibold text-yellow-700">
+                        <i className="fa-solid fa-clock"></i>
+                        Awaiting Verification
+                      </span>
+                    )}
+                  </div>
 
                   <div className="mt-4">
                     <label className="mb-3 block text-sm font-semibold text-gray-700">
