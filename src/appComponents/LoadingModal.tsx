@@ -1,0 +1,55 @@
+import {ClipLoader} from 'react-spinners';
+
+type LoadingModalProps = {
+  loading: boolean;
+  loadingMessage?: string;
+  success: boolean;
+  successMessage?: string;
+  error?: boolean;
+  errorMessage?: string;
+};
+
+export const LoadingModal = ({
+  loading,
+  loadingMessage,
+  success,
+  successMessage,
+  error,
+  errorMessage,
+}: LoadingModalProps) => {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
+      <div className="flex h-90 w-[50%] translate-x-0 transform items-center justify-center bg-gray-300 p-5 text-white transition-transform duration-300 ease-in-out">
+        {loading ? (
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="mb-8 text-center text-4xl font-bold text-black">
+              {loadingMessage || 'LOGGING IN'}
+            </h2>
+            <ClipLoader
+              className="mt-5"
+              size={30}
+              color="#630063"
+              loading={loading}
+            />
+          </div>
+        ) : success ? (
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="mb-8 text-center text-4xl font-bold text-black">
+              {successMessage || 'LOGGIN SUCESS'}
+            </h2>
+            <p className="mt-5 text-4xl">✅</p>
+          </div>
+        ) : error ? (
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="mb-8 text-center text-4xl font-bold text-black">
+              {errorMessage || 'LOGGIN Error'}
+            </h2>
+            <p className="mt-5 text-4xl">❌</p>
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+    </div>
+  );
+};
